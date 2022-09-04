@@ -1,0 +1,22 @@
+<%- include partials/header ; -%>
+
+<h1>Home</h1>
+
+<p> <%= homeStartingContent %> </p>
+
+<% posts.forEach(function(post) { %>
+  <% var json = post.title; %>
+  <% var json2 = post.text; %>
+  <% var replShort2 = json2.substring(0, 100); %>
+  <% if (json2.length > 100) {
+      replShort2 = replShort2 + " ...";
+  } %>
+  <h2><%= json ; %> </h2>
+  <p>  <%= replShort2 ; %>
+    <% if (json2.length > 100) { %>
+    <a href="/post/<%=json%>"> Read More</a>
+    <% } %>
+  </p>
+<% }); %>
+
+<%- include partials/footer ; -%>
